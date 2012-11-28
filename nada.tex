@@ -33,7 +33,7 @@
     /DOCINFO pdfmark}
 
 
-\title{Flight Patterns: Visualizing Air Traffic Patterns over the United States
+\title{NormStad Flight Analysis: Visualizing Air Traffic Patterns over the United States
 }%\vspace{-20pt}}
 
 
@@ -56,11 +56,12 @@
 
 \begin{abstract}
 
-In this paper, we describe a novel visualization application that enables
+In this paper, we describe the NormSTAD Flight Analysis system, a novel visualization application that enables
 interactive visualization of air traffic patterns using Aircraft
 Situations Display to Industry data. A web-based visualization
 is demonstrated which allows users to analyze flight data and make 
-discoveries pertaining to its 4D trajectories. Unique patterns discovered
+discoveries pertaining to their 4D trajectories which include 
+their time, distance, altitude, and speed. Unique patterns discovered
 in this application could result in less fuel consumption and more efficient
 management of departure and arrivals by air traffic controllers.
 
@@ -75,8 +76,8 @@ of revealing flight paths, spotting trends and revealing outliers.
 \end{abstract}
 
 \category{H.3.3}{Information Storage and Retrieval}{Information Search and Retrieval}[Information filtering]
-\category{H.3.5}{Information Storage and Retrieval}{Online Information Services}[Web-based services]
-\category{H.5.2}{Information Interfaces and Presentation}{User Interfaces}
+\category{\\H.3.5}{Information Storage and Retrieval}{Online Information Services}[Web-based services]
+\category{\\H.5.2}{Information Interfaces and Presentation}{User Interfaces}
 
 \vspace{-2mm}
 \terms{Design, Human Factors, Performance}
@@ -110,20 +111,36 @@ real-time flight plan and track information for the NAS to airlines and other
 oganizations. The feed known as Aircraft Situation Display to Industry (ASDI) is a 
 product of the Enhanced Traffic Management System (ETMS). It originates from
 the Traffic Flow Management (TFM) Production Center located at the William
-J. Hughes Technical Center in Atlantic City, New Jersey. Figure 1a shows the 
-number of ASDI messages for a single random day while Figure 1b shows the number
+J. Hughes Technical Center in Atlantic City, New Jersey. Figure~\ref{table1} shows the 
+number of ASDI messages for a single random day while Figure~\ref{table2} shows the number
 of supporting records for the main message set.
+
 
 A novel visualization system is needed to aggregate this data in order for 
 users to detect anomalies and discover unique patterns. To be able to compare 
 flights of varying distance or time, the data values are normalized to 
-create a standardized display allowing direct comparison.
+create a standardized display of time series allowing direct comparison between
+flights. 
+
+\newcommand{\incfig}[2]{\includegraphics[#2]{figs/#1}\label{#1}}
+
+\begin{figure}
+\centering
+\subfloat[]{\incfig{table1}{width=1\columnwidth}}\hfill
+\subfloat[]{\incfig{table2}{width=1\columnwidth}}
+\caption{
+\subref{table1} Caption for Figure 1a -- SAMET 
+ \subref{table2} Caption for Figure 1b -- SAMET
+}
+\label{two-tables}
+\end{figure}
 
 The rest of this paper is organized as follows. Section~\ref{sec-related-work}
 discusses related
 work. Section~\ref{sec-asdi} explains the ASDI data and its attributes. 
-Section~\ref{sec-arch} describes
-the overall architecture and the interface and Section~\ref{sec-expert-review}
+Section~\ref{sec-architecture} describes
+the overall architecture and the interface is described in Section~\ref{sec-interface}.
+Section~\ref{sec-expert-review}
 provides the expert reviews
 and feedbacks of the implementation. Section~\ref{sec-future-work}
 discusses future work, while our conclusions
@@ -132,12 +149,226 @@ are outlined in Section~\ref{sec-conclusion}.
 \section{Related Work}
 \label{sec-related-work}
 
+There are number of articles and books on
+cost-effective air traffic management, computing
+optimal trajectories, resolving conflicts and related
+research issues. While some of this research focuses
+on algorithms on optimization, others target cost-
+effectiveness, and on-time take-off and landing
+issues. There have also been great amount of
+research on visualizing 4D trajectories. However,
+to the best of our knowledge, there is no work
+done similar to ours where most critical flight
+attributes are normalized and displayed on a line
+chart allowing overlay of multiple flights regardless
+of their departure and arrival airports, flight
+duration, and travel distance. Using this application,
+airline operators will better determine flight plans,
+discover holding and slow-down patterns caused by
+disruptive events, go greener, consume less fuel and
+overall save money and time. This will obviously
+make air traffic controllers’ jobs easier as they will
+be able to visualize series of flights on a single
+chart, resulting in a better decision making.
 
-\section{ASDI}
+Research matters pertaining to algorithms for
+optimal trajectories and conflict resolution can be
+found in various resources [1, 2, 8, 11, 15, 17]. A
+significant amount of research in the visualization
+community has also been dedicated to interactive
+visualization of air traffic [7, 16, 19].
+
+With their research, Palmer et al. [3] examined
+graphical representations of aircraft altitude in
+simulated air traffic control (ATC). They found
+out that in two experiments, size and contrast cues
+correlated with altitude improved participants'
+ability to detect future aircraft conflicts.
+
+In their article, Pestana et al. [4] presented
+the AIRNET platform architecture focusing into its
+innovative characteristics to provide, in an airport
+environment, the surveillance, control, guidance,
+and the decision support services for airport
+operators.
+
+Rozzi et al. [5] aimed at investigating how
+visual affordances of the 3D representation would
+match with the operational demand as emerged
+from a previous analysis of ATC practice. Would
+3D display of air traffic help ameliorate the delay
+issues at the airports?
+
+Hurter et al. [6] addressed a new issue of
+metro map layout in their research. They presented
+a complete method to produce an efficient layout of
+aircraft flight routes in the ATC context. They
+turned ATC specific visual constraints into
+mathematical formulations.
+
+Landry et al. [10] reviewed and analyzed
+the current air traffic control system which has
+evolved around the air traffic controller and pilots
+while not updating to the increasing air traffic. The
+authors believe that the user centric system must be
+replaced by a more automated system, but do
+know if any current visualizations are able to
+concisely display the operator with the necessary
+information.
+
+Feng at al. [13] were able to provide an
+interactive visualization of air traffic data for air
+traffic controllers using statistical analysis. The
+system is designed with the user, air traffic
+controllers, in mind and allowing for both
+instantaneous and historical air traffic analysis so
+that the operator can make informed real-time
+decisions.
+
+In their research, Khoury et al. [14]
+presented the simulation model on two airside
+operation scenarios at Detroit Metro Airport by
+defining a large number of parameters and doing
+the 3D visualization.
+
+Wehrend and Lewis [18] described an
+approach on how to classify the visualization
+problems, breaking them into sub problems,
+locating applicable techniques and combining them
+into a unified representation.
+
+\section{ASDI Data}
 \label{sec-asdi}
 
-\section{Architecture and Interface}
-\label{sec-arch}
+In this section, we introduce ASDI data and its
+attributes, overall. In addition, data normalization
+process is described.
+
+ASDI subsystem of the Traffic Flow
+Management System (TFMS) allows near
+real-time air traffic data to be disseminated to
+members of the aviation industry. The data stream
+is made available through the U.S. Department
+of Transportation's Volpe Transportation Center.
+The data stream consists of data elements which
+show the position and flight plans of all aircraft
+in U.S. Elements include the location, altitude,
+airspeed, destination, estimated time of arrival and
+tail number or designated identifier of air carrier
+and general aviation aircraft operating on IFR flight
+plans within U.S. airspace.
+
+Due to the project’s requirements, only a
+subset of historical ASDI data was used. The data
+set included Delta and Delta Connection, Atlantic
+Southeast Airlines’ flights departing from Seattle
+Tacoma Airport (KSEA) for the duration of July
+and August 2012.
+
+Flights pertaining to Delta Airlines consisted
+of the following flight numbers:
+• DAL842, departing from Seattle Tacoma
+and arriving to New York JFK
+• DAL1043, departing from Seattle Tacoma
+and arriving to New York JFK Airport
+• DAL2410, departing from Seattle Tacoma
+and arriving to Detroit Metropolitan
+Wayne County Airport
+
+Flights pertaining to Delta Connection,
+Atlantic Southeast Airlines consisted of the
+following flight numbers:
+• ASA24, departing from Seattle Tacoma
+and arriving to Boston Logan International
+Airport
+• ASA678, departing from Seattle Tacoma
+and arriving to Denver International
+Airport
+
+Dataset was generated by merging a subset of
+various message types including:
+• Departure Information
+• Track Information and
+• Flight Management Information
+
+The process yielded the following fields:
+• Source Date
+• Source Time
+• Aircraft Id
+• Flight Key
+• Speed
+• Altitude Type
+• Altitude Format
+• Altitude
+• Latitude
+• Longitude
+
+In addition, certain values were normalized
+so that various flights or time series of same
+flights could be overlaid on the same line chart.
+Normalized values for interactive visualization
+included:
+• Altitude
+• Speed
+• Distance
+• Planned Flight Time and
+• Actual Flight Time
+
+All normalized values range between 0 and 1
+with an exception that Actual Flight Time may
+well go over 1 or remain under 1 due to fact
+that non on-time flights usually take less or
+more than Planned Flight Time.
+
+\section{Architecture}
+\label{sec-architecture}
+
+\section{Interface}
+\label{sec-interface}
+
+The NormSTAD Flight Analysis user interface initially shows four panels of display as seen in 
+FIG labeled Filters, Line Chart, Map and Details on Demand. Each panel allows for 
+direct interaction or display of the data and can be minimized to
+give more room to the other panels by selecting 
+the arrow in the upper right corner of the specific panel. 
+
+When the application is first opened, the Line Chart panel of NormSTAD Flight Analysis is shown in the top
+center of the browser displaying two graphs with all flights displayed for the 
+loaded dataset. A noticeable issue is that lines are often close together and hard to
+distinguish.
+ To combat this issue, the bottom graph allows for selection of a range of 
+the horizontal axis. By selecting a range along the horizontal axis, the coordinate
+system of the top graph is redrawn to have only values contained within the selected subset
+creating a zoom-in effect. This range can be expanded or contracted and even moved by clicking,
+holding, and dragging the range window. A mouse hover or mouse click on a
+line turns the line red and 
+thicker making it easier to see. A mouse click on a line has the effect of
+updating the Details on Demand
+to display flight information and removing this information on the second click of the line. 
+If the "Show Flight Path" checkbox is checked in the Filters panel, then a mouse click on a line also displays
+the flight path in the Map panel on a Google Maps map for the sampled latitude and longitude points along with a label containg the airport code at the departure and arrival airports.
+The Details on Demand panel displays the flight number, the departure and arrival airports, the date,
+the arrival time and the duration of the flight in minutes for the flights selected in the
+Line Graph.
+
+The Filters panel allows the user to limit the results that they see on the Line
+Chart. The first section, "Choose Airlines", is for selection of airlines to display 
+in the Line Chart which is set to all airlines by default.
+Upon selection of an airline, the Line Chart is updated accordingly and the
+"Choose Flights" section is populated with all
+flights for the selected airline(s). Note that a user can select multiple adjacent
+rows for both the Choose Airlines and the Choose Flights sections
+by holding the Shift key and selecting rows or 
+multiple rows by holding the Control key (Apple key on Apple computers) and selecting rows. 
+Selection of row(s) in the Choose Flights section allows for updating of the Line Chart
+by the flight number. The flights can be further filtered by limiting the flight data
+using the "Start Date" and "End Date" drop down calendar menus. The data displayed 
+in the Line Chart can be changed by changing the "Line chart type" value which subsequently
+changes the axis or both of the axes where 
+all values are normalized. By default, this value is set to "Distance vs. Actual Flight Time",
+but it can be changed to "Distance vs. Planned Flight Time", "Altitude vs. Actual Flight Time",
+or "Speed vs. Actual Flight Time". The lines can be colored by their airline or by their 
+flight number using the "Color by" drop-down menu. 
 
 
 \section{Expert Reviews and Feedback}
@@ -149,6 +380,20 @@ are outlined in Section~\ref{sec-conclusion}.
 \section{Conclusion}
 \label{sec-conclusion}
 
+\section{Acknowledgements}
+\label{sec-acknowledgements}
+We would like to thank all of the
+participants who helped us evaluate alpha and
+beta versions of the tool. We were able to make
+improvements based on their expert reviews,
+and feedback. We would especially like to thank
+Professor Michael Ball with his valuable guidance
+on determining a niche area in air traffic control
+and management to work on and overcoming issues
+pertaining to design and implementation of Flight
+Pattern Analysis tool. We can’t thank enough to
+Professor Ben Shneiderman for his advice that
+motivated us and kept us focused along the way.
 
 \bibliographystyle{abbrv}
 \begin{small}
