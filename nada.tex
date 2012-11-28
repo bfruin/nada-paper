@@ -1,0 +1,159 @@
+\documentclass{sig-alternate}
+
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{xspace}
+
+\usepackage{watermark}
+
+\DeclareCaptionType{copyrightbox}
+%\usepackage{etoolbox}
+%\makeatletter
+%\patchcmd{\maketitle}{\@copyrightspace}{}{}{}
+%\makeatother
+
+\newcommand{\eg}{e.g.\xspace}
+\newcommand{\ie}{i.e.\xspace}
+\newcommand{\etc}{etc.\xspace}
+\newcommand{\etal}{et al.\xspace}
+\newcommand{\vect}[1]{\ensuremath{\overrightarrow{#1}}}
+\newcommand{\tm}[1]{\emph{#1}}
+
+\newcommand{\namesep}{\hspace{1cm}}
+\toappear{}
+%\renewcommand{\baselinestretch}{0.937}
+
+\special{! /pdfmark where
+  {pop} {userdict /pdfmark /cleartomark load put} ifelse [
+    /Author ()
+    /Title (Flight Patterns: Visualizing Air Traffic Patterns over the United States)
+    /Keywords ()
+    /DOCINFO pdfmark}
+
+
+\title{Flight Patterns: Visualizing Air Traffic Patterns over the United States
+}%\vspace{-20pt}}
+
+
+\numberofauthors{1}
+\author{
+\alignauthor
+\begin{tabular}{c@{\namesep}c@{\namesep}c}
+ Samet Ayhan & Brendan C. Fruin & Fan Yang
+\end{tabular}\\
+\affaddr{Department of Computer Science, University of Maryland}\\
+\affaddr{College Park, MD  20742 USA}
+\email{\{sayhan, brendan, fyang\}@cs.umd.edu}
+}
+
+\newcommand{\refname}{Bibliography}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+In this paper, we describe a novel visualization application that enables
+interactive visualization of air traffic patterns using Aircraft
+Situations Display to Industry data. A web-based visualization
+is demonstrated which allows users to analyze flight data and make 
+discoveries pertaining to its 4D trajectories. Unique patterns discovered
+in this application could result in less fuel consumption and more efficient
+management of departure and arrivals by air traffic controllers.
+
+The application consumes ASDI data then normalizes flight attributes
+including distance, speed, altitude, and time along the flight path. This 
+information is then displayed on a line chart which can be customized
+through filtering, coloring and selection. Attributes pertaining to 
+selected flights can be viewed in a details on demand fashion. The result
+is a both intuitive and visually appealling visualization with the goals
+of revealing flight paths, spotting trends and revealing outliers.
+
+\end{abstract}
+
+\category{H.3.3}{Information Storage and Retrieval}{Information Search and Retrieval}[Information filtering]
+\category{H.3.5}{Information Storage and Retrieval}{Online Information Services}[Web-based services]
+\category{H.5.2}{Information Interfaces and Presentation}{User Interfaces}
+
+\vspace{-2mm}
+\terms{Design, Human Factors, Performance}
+
+
+
+\section{Introduction}
+\label{sec-introduction}
+
+% BCF 11/28 - cite NAS
+The National Airspace System (NAS) is a complex non-deterministic system that
+is impacted continually by both major and minor variables including aircraft
+delays and human decisions that largely cannot be accurately forecasted.
+The system has developed to offer feedback and response at all levels from
+gate agents to the Command Center with the intent of restoring the desired
+efficient state. The result is a self-ordering system that is broadly
+similar, but has different daily operations. An important point to note is that
+a seemingly insignificant event such as
+a delay in obtaining a wheel chair can have large impacts in delays
+as \emph{slots} are missed and reassigned. At every stage decisions are being
+made to recover the system and keep it as close to optimal given its current
+state. However, there is currently no method of quantifying the effects of 
+a decision or comparing them to an alternate decision. NAS operations
+are recorded concurrently across different systems in different formats.
+If this information was collated and catalogued, it would be possible
+to analyze the NAS operations to identify inefficiencies, disruptive events 
+and poor decisions along with the resulting impacts on airspace users.
+
+In 1992 the Federal Aviation Administration (FAA), started a program to provide
+real-time flight plan and track information for the NAS to airlines and other
+oganizations. The feed known as Aircraft Situation Display to Industry (ASDI) is a 
+product of the Enhanced Traffic Management System (ETMS). It originates from
+the Traffic Flow Management (TFM) Production Center located at the William
+J. Hughes Technical Center in Atlantic City, New Jersey. Figure 1a shows the 
+number of ASDI messages for a single random day while Figure 1b shows the number
+of supporting records for the main message set.
+
+A novel visualization system is needed to aggregate this data in order for 
+users to detect anomalies and discover unique patterns. To be able to compare 
+flights of varying distance or time, the data values are normalized to 
+create a standardized display allowing direct comparison.
+
+The rest of this paper is organized as follows. Section~\ref{sec-related-work}
+discusses related
+work. Section~\ref{sec-asdi} explains the ASDI data and its attributes. 
+Section~\ref{sec-arch} describes
+the overall architecture and the interface and Section~\ref{sec-expert-review}
+provides the expert reviews
+and feedbacks of the implementation. Section~\ref{sec-future-work}
+discusses future work, while our conclusions
+are outlined in Section~\ref{sec-conclusion}.
+
+\section{Related Work}
+\label{sec-related-work}
+
+
+\section{ASDI}
+\label{sec-asdi}
+
+\section{Architecture and Interface}
+\label{sec-arch}
+
+
+\section{Expert Reviews and Feedback}
+\label{sec-expert-review}
+
+\section{Future Work}
+\label{sec-future-work}
+
+\section{Conclusion}
+\label{sec-conclusion}
+
+
+\bibliographystyle{abbrv}
+\begin{small}
+\bibliography{nada}
+\end{small}
+
+\end{document}
+
