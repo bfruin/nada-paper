@@ -58,7 +58,7 @@
 
 In this paper, we describe the NormSTAD Flight Analysis system, a novel visualization application that enables
 interactive visualization of air traffic patterns using Aircraft
-Situations Display to Industry data. A web-based visualization
+Situations Display to Industry (ASDI) data. A web-based visualization
 is demonstrated which allows users to analyze flight data and make 
 discoveries pertaining to their 4D trajectories which include 
 their time, distance, altitude, and speed. Unique patterns discovered
@@ -149,93 +149,27 @@ are outlined in Section~\ref{sec-conclusion}.
 \section{Related Work}
 \label{sec-related-work}
 
-There are number of articles and books on
-cost-effective air traffic management, computing
-optimal trajectories, resolving conflicts and related
-research issues. While some of this research focuses
-on algorithms on optimization, others target cost-
-effectiveness, and on-time take-off and landing
-issues. There have also been great amount of
-research on visualizing 4D trajectories. However,
-to the best of our knowledge, there is no work
-done similar to ours where most critical flight
-attributes are normalized and displayed on a line
-chart allowing overlay of multiple flights regardless
-of their departure and arrival airports, flight
-duration, and travel distance. Using this application,
-airline operators will better determine flight plans,
-discover holding and slow-down patterns caused by
-disruptive events, go greener, consume less fuel and
-overall save money and time. This will obviously
-make air traffic controllers’ jobs easier as they will
-be able to visualize series of flights on a single
-chart, resulting in a better decision making.
+There has been a great amount of research in flight data pertaining to algorithms
+for optimal trajectories, anomaly detection and conflict 
+resolution~\cite{Basu09, Cao06, Chu10, Liu08, Rama06, Wang04}.
+Liu et al.~\cite{Liu08} study departure and arrival delays and how these delays
+can propagate to future flight delays and cancellations. Our system instead focuses
+on in-air flight data to help study why these delays may be happening with 
+respect to time of day, flight number, airline or flight trajectory. 
+Chu et al.~\cite{Chu10} similarly
+attempt to detect anomalies in aircraft cruise data by using time, location, altitude 
+and speed. They also normalized their data as was done in the NormSTAD system. However,
+the NormSTAD system utilizes only historical data while their system only studied the results
+of a simulation. While the study of such algorithms for detection of anomalies and conflict
+resolution is vitally important to the field of aviation, the goal of the NormSTAD Flight Analysis 
+Tool is to allow easy and timely analysis of large amounts of flight data without the need
+for such algorithms.
 
-Research matters pertaining to algorithms for
-optimal trajectories and conflict resolution can be
-found in various resources [1, 2, 8, 11, 15, 17]. A
-significant amount of research in the visualization
-community has also been dedicated to interactive
-visualization of air traffic [7, 16, 19].
+Landry~\cite{Landry11} and Khoury et al.~\cite{Khoury06} stress the importance
+of informative visualizations for the study of air traffic control systems.
+Landry 
 
-With their research, Palmer et al. [3] examined
-graphical representations of aircraft altitude in
-simulated air traffic control (ATC). They found
-out that in two experiments, size and contrast cues
-correlated with altitude improved participants'
-ability to detect future aircraft conflicts.
 
-In their article, Pestana et al. [4] presented
-the AIRNET platform architecture focusing into its
-innovative characteristics to provide, in an airport
-environment, the surveillance, control, guidance,
-and the decision support services for airport
-operators.
-
-Rozzi et al. [5] aimed at investigating how
-visual affordances of the 3D representation would
-match with the operational demand as emerged
-from a previous analysis of ATC practice. Would
-3D display of air traffic help ameliorate the delay
-issues at the airports?
-
-Hurter et al. [6] addressed a new issue of
-metro map layout in their research. They presented
-a complete method to produce an efficient layout of
-aircraft flight routes in the ATC context. They
-turned ATC specific visual constraints into
-mathematical formulations.
-
-Landry et al. [10] reviewed and analyzed
-the current air traffic control system which has
-evolved around the air traffic controller and pilots
-while not updating to the increasing air traffic. The
-authors believe that the user centric system must be
-replaced by a more automated system, but do
-know if any current visualizations are able to
-concisely display the operator with the necessary
-information.
-
-Feng at al. [13] were able to provide an
-interactive visualization of air traffic data for air
-traffic controllers using statistical analysis. The
-system is designed with the user, air traffic
-controllers, in mind and allowing for both
-instantaneous and historical air traffic analysis so
-that the operator can make informed real-time
-decisions.
-
-In their research, Khoury et al. [14]
-presented the simulation model on two airside
-operation scenarios at Detroit Metro Airport by
-defining a large number of parameters and doing
-the 3D visualization.
-
-Wehrend and Lewis [18] described an
-approach on how to classify the visualization
-problems, breaking them into sub problems,
-locating applicable techniques and combining them
-into a unified representation.
 
 \section{ASDI Data}
 \label{sec-asdi}

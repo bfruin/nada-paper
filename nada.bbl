@@ -1,0 +1,40 @@
+\begin{thebibliography}{1}
+
+\bibitem{Basu09}
+A.~Basu, J.~S.~B. Mitchell, and G.~Sabhnani.
+\newblock Geometric algorithms for optimal airspace design and air traffic
+  controller workload balancing.
+\newblock {\em ACM Journal of Experimental Algorithmics}, 14, 2009.
+
+\bibitem{Cao06}
+W.~Cao, J.~Ding, and H.~Wang.
+\newblock Analysis of sequence flight delay and propagation based on the
+  bayesian networks.
+\newblock In {\em Natural Computation, 2008. ICNC '08. Fourth International
+  Conference on}, volume~6, pages 338 --343, oct. 2008.
+
+\bibitem{Chu10}
+S.~P.~B. Eric~Chu, Dimitry~Gorinevsky.
+\newblock Detecting aircraft performance anomalies from cruise flight data.
+\newblock In {\em AIAA Infotech@Aerospace}, 2010.
+
+\bibitem{Liu08}
+Y.-J. Liu and S.~Ma.
+\newblock Flight delay and delay propagation analysis based on bayesian
+  network.
+\newblock In {\em Knowledge Acquisition and Modeling, 2008. KAM '08.
+  International Symposium on}, pages 318 --322, dec. 2008.
+
+\bibitem{Rama06}
+K.~Ramamoorthy, B.~Boisvert, and G.~Hunter.
+\newblock A real-time probabilistic traffic flow management evaluation tool.
+\newblock In {\em 25th Digital Avionics Systems Conference, 2006 IEEE/AIAA},
+  pages 1 --13, oct. 2006.
+
+\bibitem{Wang04}
+P.~T.~R. Wang, C.~R. Wanke, and F.~P. Wieland.
+\newblock Modeling time and space metering of flights in the national airspace
+  system.
+\newblock In {\em Winter Simulation Conference}, pages 1299--1304, 2004.
+
+\end{thebibliography}
