@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2012.11.29)  30 NOV 2012 00:31
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2012.11.29)  30 NOV 2012 06:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -363,4 +363,4 @@ Here is how much of TeX's memory you used:
  957 hyphenation exceptions out of 8191
  44i,16n,46p,441b,359s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on nada.dvi (6 pages, 32944 bytes).
+Output written on nada.dvi (6 pages, 33092 bytes).
