@@ -1,4 +1,24 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{D3}
+D3.
+\newblock \url{http://d3js.org}.
+
+\bibitem{DHTMLX}
+Dhtmlx.
+\newblock \url{http://dhtmlx.com}.
+
+\bibitem{jQuery}
+jquery.
+\newblock \url{http://jquery.com}.
+
+\bibitem{NASA}
+Nasa arc project.
+\newblock \url{http://map.sdsu.edu/arc/UserTest1new.pdf}.
+
+\bibitem{NVD3}
+Nvd3.
+\newblock \url{http://nvd3.org}.
 
 \bibitem{Basu09}
 A.~Basu, J.~S.~B. Mitchell, and G.~Sabhnani.
@@ -13,10 +33,44 @@ W.~Cao, J.~Ding, and H.~Wang.
 \newblock In {\em Natural Computation, 2008. ICNC '08. Fourth International
   Conference on}, volume~6, pages 338 --343, oct. 2008.
 
+\bibitem{Chin88}
+D.~V. N.~K. Chin, J.P.
+\newblock Questionnaire for user interface satisfaction.
+\newblock \url{http://hcibib.org/perlman/question.cgi?form=QUIS}.
+
+\bibitem{Conv2011}
+S.~Conversy, H.~Gaspard-Boulinc, S.~Chatty, S.~Val{\`e}s, C.~Dupr{\'e}, and
+  C.~Ollagnon.
+\newblock Supporting air traffic control collaboration with a tabletop system.
+\newblock In {\em CSCW}, pages 425--434, 2011.
+
 \bibitem{Chu10}
 S.~P.~B. Eric~Chu, Dimitry~Gorinevsky.
 \newblock Detecting aircraft performance anomalies from cruise flight data.
 \newblock In {\em AIAA Infotech@Aerospace}, 2010.
+
+\bibitem{Hurter10}
+C.~Hurter, M.~Serrurier, R.~Alonso, G.~Tabart, and J.-L. Vinot.
+\newblock An automatic generation of schematic maps to display flight routes
+  for air traffic controllers: structure and color optimization.
+\newblock In {\em AVI}, pages 233--240, 2010.
+
+\bibitem{Khoury06}
+H.~M. Khoury, V.~R. Kamat, and P.~G. Ioannou.
+\newblock Simulation and visualization of air-side operations at detroit
+  metropolitan airport.
+\newblock In {\em Winter Simulation Conference}, pages 2029--2038, 2006.
+
+\bibitem{Klein06}
+A.~Klein.
+\newblock Day's weather in the nas: Visualization of impact, quantification and
+  comparative analysis.
+\newblock In {\em NASA ICNS 2006}, 2006.
+
+\bibitem{Landry11}
+S.~Landry.
+\newblock Human centered design in the air traffic control system.
+\newblock {\em Journal of Intelligent Manufacturing}, 22:65--72, 2011.
 
 \bibitem{Liu08}
 Y.-J. Liu and S.~Ma.
@@ -24,6 +78,17 @@ Y.-J. Liu and S.~Ma.
   network.
 \newblock In {\em Knowledge Acquisition and Modeling, 2008. KAM '08.
   International Symposium on}, pages 318 --322, dec. 2008.
+
+\bibitem{Palmer08}
+E.~M. Palmer, T.~C. Clausner, and P.~J. Kellman.
+\newblock Enhancing air traffic displays via perceptual cues.
+\newblock {\em TAP}, 5(1), 2008.
+
+\bibitem{Pestana05}
+G.~Pestana, M.~M. da~Silva, A.~Casaca, and J.~Nunes.
+\newblock An airport decision support system for mobiles surveillance {\&}
+  alerting.
+\newblock In {\em MobiDE}, pages 33--40, 2005.
 
 \bibitem{Rama06}
 K.~Ramamoorthy, B.~Boisvert, and G.~Hunter.
@@ -36,5 +101,12 @@ P.~T.~R. Wang, C.~R. Wanke, and F.~P. Wieland.
 \newblock Modeling time and space metering of flights in the national airspace
   system.
 \newblock In {\em Winter Simulation Conference}, pages 1299--1304, 2004.
+
+\bibitem{Weh90}
+S.~Wehrend and C.~Lewis.
+\newblock A problem-oriented classification of visualization techniques.
+\newblock In {\em Proceedings of the 1st conference on Visualization '90}, VIS
+  '90, pages 139--143, Los Alamitos, CA, USA, 1990. IEEE Computer Society
+  Press.
 
 \end{thebibliography}

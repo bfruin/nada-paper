@@ -13,6 +13,7 @@
 %\makeatletter
 %\patchcmd{\maketitle}{\@copyrightspace}{}{}{}
 %\makeatother
+%\sloppy
 
 \newcommand{\eg}{e.g.\xspace}
 \newcommand{\ie}{i.e.\xspace}
@@ -56,7 +57,7 @@
 
 \begin{abstract}
 
-In this paper, we describe the NormSTAD Flight Analysis system, a novel visualization application that enables
+In this paper, we describe the NormSTAD Flight Analysis Tool, a novel visualization application that enables
 interactive visualization of air traffic patterns using Aircraft
 Situations Display to Industry (ASDI) data. A web-based visualization
 is demonstrated which allows users to analyze flight data and make 
@@ -129,8 +130,9 @@ flights.
 \subfloat[]{\incfig{table1}{width=1\columnwidth}}\hfill
 \subfloat[]{\incfig{table2}{width=1\columnwidth}}
 \caption{
-\subref{table1} Caption for Figure 1a -- SAMET 
- \subref{table2} Caption for Figure 1b -- SAMET
+(a) Table displaying the number of ASDI messages in a given day
+(b) Table displaying the number of supporting records for main ASDI message set
+% \subref{table2} Caption for Figure 1b -- SAMET
 }
 \label{two-tables}
 \end{figure}
@@ -158,8 +160,8 @@ on in-air flight data to help study why these delays may be happening with
 respect to time of day, flight number, airline or flight trajectory. 
 Chu et al.~\cite{Chu10} similarly
 attempt to detect anomalies in aircraft cruise data by using time, location, altitude 
-and speed. They also normalized their data as was done in the NormSTAD system. However,
-the NormSTAD system utilizes only historical data while their system only studied the results
+and speed. They also normalized their data as was done in the NormSTAD tool. However,
+the NormSTAD tool utilizes only historical data while their system only studied the results
 of a simulation. While the study of such algorithms for detection of anomalies and conflict
 resolution is vitally important to the field of aviation, the goal of the NormSTAD Flight Analysis 
 Tool is to allow easy and timely analysis of large amounts of flight data without the need
@@ -167,7 +169,39 @@ for such algorithms.
 
 Landry~\cite{Landry11} and Khoury et al.~\cite{Khoury06} stress the importance
 of informative visualizations for the study of air traffic control systems.
-Landry 
+Landry reviewed and analyzed the current air traffic control system which 
+has evolved around the air traffic controller and pilots while not 
+updating to the increasing air traffic. Landry states that the 
+the current visualizations may not concisely display the operator with the 
+necessary information. Khoury et al. focus their attention on 
+construction of a 3D model of only airport operations. Their analysis of delays
+in limited in that they do not include flight sensory data in their analysis.
+
+Many other researchers have created flight data 
+visualizations~\cite{Conv2011,  Hunter10, Klein06, Palmer08, Pestana05}.
+Hurter et al.~\cite{Hurter10} designed a metro style visualization
+for flight paths in the ATC context in
+order to avoid severe overlaps of the lines
+along with a complete method to produce an efficient layout.
+This visualization is clear and visually appealing, but fails 
+to inform the user of differences in flight paths since it 
+does not use the actual latitude and longitude coordinates
+of the flight. The AIRNET platform by Pestana et al.~\cite{Pestana05}
+provides a 3D model for surveillance, control, guidance and decision
+support services by airport operators. The NormSTAD tool avoids
+3D visualization to reduce complexity by allowing the axes to be changed  
+by the user.
+
+After reviewing the current state-of-the-art of flight visualizations,
+we decided to follow Wehrend's ideas~\cite{Weh90}. Wehrend believes
+that visualizations should break problems into smaller problems
+and find applicable techniques for each of these smaller problems.
+The visualization is then a unified representation of the smaller
+problems in order to solve larger problems. It is with this belief
+that the NormSTAD Flight Analysis Tool was based. Using this application,
+airline operators will be able to better determine flight plans,
+discover holding and slow-down patterns caused by disruptive events, consume
+less fuel and save time, money and the environment in the process. 
 
 
 
@@ -175,39 +209,41 @@ Landry
 \label{sec-asdi}
 
 In this section, we introduce ASDI data and its
-attributes, overall. In addition, data normalization
-process is described.
+attributes. In addition, the data normalization
+process that NormSTAD uses is described.
 
-ASDI subsystem of the Traffic Flow
-Management System (TFMS) allows near
+The ASDI subsystem of the Traffic Flow
+Management System (TFMS)~\cite{TFMS} allows near
 real-time air traffic data to be disseminated to
 members of the aviation industry. The data stream
 is made available through the U.S. Department
 of Transportation's Volpe Transportation Center.
 The data stream consists of data elements which
 show the position and flight plans of all aircraft
-in U.S. Elements include the location, altitude,
+in the United States. Attributes include the location, altitude,
 airspeed, destination, estimated time of arrival and
 tail number or designated identifier of air carrier
 and general aviation aircraft operating on IFR flight
-plans within U.S. airspace.
+plans within the United States airspace.
 
-Due to the project’s requirements, only a
-subset of historical ASDI data was used. The data
-set included Delta and Delta Connection, Atlantic
+Due to the limitations in the web tools employed, only a
+subset of the historical ASDI data was used. The data
+set included Delta Airlines' and Delta Connection, Atlantic
 Southeast Airlines’ flights departing from Seattle
 Tacoma Airport (KSEA) for the duration of July
 and August 2012.
 
 Flights pertaining to Delta Airlines consisted
 of the following flight numbers:
-• DAL842, departing from Seattle Tacoma
+\begin{itemize}{labelitemi}{$\bullet$}
+\item DAL842, departing from Seattle Tacoma
 and arriving to New York JFK
-• DAL1043, departing from Seattle Tacoma
+\item  DAL1043, departing from Seattle Tacoma
 and arriving to New York JFK Airport
-• DAL2410, departing from Seattle Tacoma
+\item  DAL2410, departing from Seattle Tacoma
 and arriving to Detroit Metropolitan
-Wayne County Airport
+Wayne  County Airport
+\end{itemize}
 
 Flights pertaining to Delta Connection,
 Atlantic Southeast Airlines consisted of the
@@ -256,6 +292,28 @@ more than Planned Flight Time.
 
 \section{Architecture}
 \label{sec-architecture}
+
+The NormSTAD Flight Analysis Tool is a web-based implementation which is primarily built
+using the D3 JavaScript library. D3, standing for Data-Driven Documents, is a 
+library that allows users to bind arbitrary data with a Document Object Model (DOM)
+and achieve data-drive transformations~\cite{D3}. NormSTAD utilizes a predefined API of D3
+to import our data and store the normalized values of time, distance, speed and altitude
+for each flight. Flight information including flight number, airline and date are also imported
+concurrently. After the data is finished being imported, the filters are dynamically created.
+
+All filters in the Filters section
+ are created using HTML syntax and JavaScript apart from the input text bar
+to search for a specific flight which is created using jQuery~\cite{jQuery}.
+Filters to select airlines and flights are bound to the imported data using D3 so that
+they can update the visualization accordingly. Filters to select the date of flights
+are created using the DHTMLX~\cite{DHTMLX} JavaScript library.
+
+Drop down menus for choosing the line chart type and color and the checkbox for map display
+are implemented in JavaScript with events handled in D3 to link filters with the line chart.
+The NVD3~\cite{NVD3} JavaScript library is used for the line chart, horizontal axis 
+selection and the legend. The Google Maps JavaScript API provides our flight path map,
+airport markers and flight path drawing. The Details on Demand panel is a dynamic
+HTML table which changes as a result of selection in the line chart.
 
 \section{Interface}
 \label{sec-interface}
@@ -308,6 +366,55 @@ flight number using the "Color by" drop-down menu.
 \section{Expert Reviews and Feedback}
 \label{sec-expert-review}
 
+In this section, we present the experts' reviews and feedback of the NormSTAD Flight 
+Analysis Tool. Due to the niche nature of our subject matter, Air Traffic Management, we decided
+that an expert review aided by a questionnaire would be the best way to get detailed
+information pertaining to the NormSTAD tool. Three subject-matter experts were selected
+to be reviewers. Of these three subject-matter experts, one was from academia with 
+research interest in flight data analysis and two were from industry. 
+
+We began by giving a brief introduction and twenty minute
+tutorial of the NormSTAD Flight Analysis Tool which was followed by ten minutes where
+the expert was allowed to interact with the tool on their own. Following the training
+and interaction, the experts were each given three specific tasks to complete. 
+During this process, we encouraged the experts to "think-aloud" and recorded their 
+thought process. The goal of this step was to determine if the NormSTAD tool met
+the experts' expectation and to use their responses in order to make the tool
+more intuitive and interactive. Upon completion of the tasks, the experts were
+given a questionnaire modelled after Chin et al.~\cite{Chin88} and the 
+NASA ARC Project~\cite{NASA}
+ in which they were asked to rate the tool from various perspectives
+including its capabilities, terminology, graphical user interface, learning, and
+overall reaction. The experts were also alloted space to record their feedback
+and comments in open-ended text forms.
+
+Based on the feedback that we received in the questionnaires, the following changes
+were made NormSTAD tool as a direct result of the comments listed below:
+\begin{description}
+	\item[Comment: ] The tool displayed an unnessary amount of detailed information
+in the Details on Demand
+	\item[Solution: ] Only summary information is now displayed in a stack view.
+	\item[Comment: ] Limited selection of data representation in the line chart
+	\item[Solution: ] Added three additional modes to display different sets of data
+on the line chart
+	\item[Comment: ] Terminology was unclear or repetitive
+	\item[Solution: ] Terminology was changed to clarify and shorten labels. For example
+"Normalized Estimated Time" was replaced with "Planned Flight Time" and a note was
+added to inform the user that all values were normalized
+	\item[Comment: ] Would like to be able to use multi-select using the Control key
+	\item[Solution: ] Added multi-select for Control and Shift keys
+	\item[Comment: ] Unclear color-coding of line chart
+	\item[Solution: ] Legend with color codes added to line chart
+	\item[Comment: ] Hard to see which lines were selected as they were just larger, but
+stayed same color
+	\item[Solution: ] Lines are now enlarged and changed to red on selection.
+\end{description}
+
+The NormSTAD Flight Analysis Tool still has room for improvement with the help
+of more expert reviewers. Appendix A includes a copy of the questionnaire that 
+was given to each of our expert reviewers. 
+  
+	
 \section{Future Work}
 \label{sec-future-work}
 
