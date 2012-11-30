@@ -20,6 +20,11 @@ Nasa arc project.
 Nvd3.
 \newblock \url{http://nvd3.org}.
 
+\bibitem{TFMS}
+Traffic flow management in the national airspace system.
+\newblock
+  \url{http://www.fly.faa.gov/Products/Training/Traffic_Management_for_Pilots/TFM_in_the_NAS_Booklet_ca10.pdf}.
+
 \bibitem{Basu09}
 A.~Basu, J.~S.~B. Mitchell, and G.~Sabhnani.
 \newblock Geometric algorithms for optimal airspace design and air traffic

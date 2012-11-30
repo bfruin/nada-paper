@@ -13,6 +13,7 @@ Warning--I didn't find a database entry for "Hunter10"
 Warning--I didn't find a database entry for "DBLP:conf/avi/2010"
 Warning--I didn't find a database entry for "DBLP:conf/cscw/2011"
 Warning--I didn't find a database entry for "DBLP:conf/wsc/2006"
+Warning--to sort, need author or key in TFMS
 Warning--to sort, need author or key in D3
 Warning--to sort, need author or key in jQuery
 Warning--to sort, need author or key in DHTMLX
@@ -30,45 +31,45 @@ Too many commas in name 1 of "Chin, J.P., Diehl, V.A., Norman, K.L" for entry Ch
 while executing---line 1090 of file abbrv.bst
 Too many commas in name 1 of "Chin, J.P., Diehl, V.A., Norman, K.L" for entry Chin88
 while executing---line 1090 of file abbrv.bst
-You've used 20 entries,
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            622 strings with 6777 characters,
-and the built_in function-call counts, 6794 in all, are:
-= -- 654
-> -- 251
+            626 strings with 6948 characters,
+and the built_in function-call counts, 6953 in all, are:
+= -- 669
+> -- 252
 < -- 10
-+ -- 106
++ -- 107
 - -- 82
-* -- 386
-:= -- 987
-add.period$ -- 56
-call.type$ -- 20
-change.case$ -- 101
+* -- 391
+:= -- 1004
+add.period$ -- 58
+call.type$ -- 21
+change.case$ -- 104
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 312
-empty$ -- 624
+cite$ -- 27
+duplicate$ -- 319
+empty$ -- 647
 format.name$ -- 82
-if$ -- 1557
+if$ -- 1597
 int.to.chr$ -- 0
-int.to.str$ -- 20
+int.to.str$ -- 21
 missing$ -- 14
-newline$ -- 98
+newline$ -- 102
 num.names$ -- 30
-pop$ -- 155
+pop$ -- 163
 preamble$ -- 1
-purify$ -- 81
+purify$ -- 83
 quote$ -- 0
-skip$ -- 272
+skip$ -- 280
 stack$ -- 0
-substring$ -- 385
-swap$ -- 116
+substring$ -- 390
+swap$ -- 117
 text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 80
-warning$ -- 5
+type$ -- 84
+warning$ -- 6
 while$ -- 50
-width$ -- 22
-write$ -- 202
+width$ -- 23
+write$ -- 209
 (There were 9 error messages)

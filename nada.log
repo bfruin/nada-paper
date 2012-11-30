@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2012.11.29)  29 NOV 2012 23:35
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2012.11.29)  30 NOV 2012 00:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -317,7 +317,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (6.71028pt too wide) in paragraph at lines 195--205
-\T1/aer/m/n/9 al-iza-tions, we de-cided to fol-low Wehrend's ideas [20]. Wehren
+\T1/aer/m/n/9 al-iza-tions, we de-cided to fol-low Wehrend's ideas [21]. Wehren
 d
  []
 
@@ -328,39 +328,39 @@ ller
  []
 
 
-LaTeX Warning: Citation `TFMS' on page \thepage  undefined on input line 216.
-
-
 Overfull \hbox (1.19456pt too wide) in paragraph at lines 229--235
 \T1/aer/m/n/9 South-east Air-li-nes’ flights de-part-ing from Seat-tle Tacoma
 
  []
 
+[2]
+Overfull \hbox (2.67136pt too wide) in paragraph at lines 306--313
+\T1/aer/m/n/9 ple-men-ta-tion which is pri-mar-ily built us-ing the D3 JavaScri
+pt
+ []
 
-! LaTeX Error: Something's wrong--perhaps a missing \item.
+File: figs/overview.eps Graphic file (type eps)
+<figs/overview.eps>
+File: figs/speed.eps Graphic file (type eps)
+ <figs/speed.eps>
+Underfull \vbox (badness 1558) has occurred while \output is active []
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.239 \item D
-             AL842, departing from Seattle Tacoma
-? 
-! Emergency stop.
- ...                                              
-                                                  
-l.239 \item D
-             AL842, departing from Seattle Tacoma
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+ [3]
+[4] (./nada.bbl
+LaTeX Font Info:    Try loading font information for T1+aett on input line 5.
+ (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+) [5])
+[6
 
- 
+] (./nada.aux) ) 
 Here is how much of TeX's memory you used:
- 3281 strings out of 493486
- 45613 string characters out of 3143548
- 109280 words of memory out of 3000000
- 6554 multiletter control sequences out of 15000+200000
- 39815 words of font info for 51 fonts, out of 3000000 for 9000
+ 3334 strings out of 493486
+ 46141 string characters out of 3143548
+ 111280 words of memory out of 3000000
+ 6590 multiletter control sequences out of 15000+200000
+ 45070 words of font info for 61 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  44i,16n,46p,441b,359s stack positions out of 5000i,500n,10000p,200000b,50000s
-Output written on nada.dvi (1 page, 6988 bytes).
+
+Output written on nada.dvi (6 pages, 32944 bytes).
