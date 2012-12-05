@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2011)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: nada.aux
 The style file: abbrv.bst
@@ -9,7 +9,6 @@ A bad cross reference---entry "Conv2011"
 refers to entry "DBLP:conf/cscw/2011", which doesn't exist
 A bad cross reference---entry "Hurter10"
 refers to entry "DBLP:conf/avi/2010", which doesn't exist
-Warning--I didn't find a database entry for "Hunter10"
 Warning--I didn't find a database entry for "DBLP:conf/avi/2010"
 Warning--I didn't find a database entry for "DBLP:conf/cscw/2011"
 Warning--I didn't find a database entry for "DBLP:conf/wsc/2006"
@@ -18,6 +17,7 @@ Warning--to sort, need author or key in D3
 Warning--to sort, need author or key in jQuery
 Warning--to sort, need author or key in DHTMLX
 Warning--to sort, need author or key in NVD3
+Warning--to sort, need author or key in API
 Too many commas in name 1 of "Chin, J.P., Diehl, V.A., Norman, K.L" for entry Chin88
 while executing---line 1049 of file abbrv.bst
 Too many commas in name 1 of "Chin, J.P., Diehl, V.A., Norman, K.L" for entry Chin88
@@ -31,45 +31,45 @@ Too many commas in name 1 of "Chin, J.P., Diehl, V.A., Norman, K.L" for entry Ch
 while executing---line 1090 of file abbrv.bst
 Too many commas in name 1 of "Chin, J.P., Diehl, V.A., Norman, K.L" for entry Chin88
 while executing---line 1090 of file abbrv.bst
-You've used 21 entries,
+You've used 22 entries,
             2118 wiz_defined-function locations,
-            626 strings with 6948 characters,
-and the built_in function-call counts, 6953 in all, are:
-= -- 669
-> -- 252
+            628 strings with 7030 characters,
+and the built_in function-call counts, 7112 in all, are:
+= -- 684
+> -- 253
 < -- 10
-+ -- 107
++ -- 108
 - -- 82
-* -- 391
-:= -- 1004
-add.period$ -- 58
-call.type$ -- 21
-change.case$ -- 104
+* -- 396
+:= -- 1021
+add.period$ -- 60
+call.type$ -- 22
+change.case$ -- 107
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 319
-empty$ -- 647
+cite$ -- 29
+duplicate$ -- 326
+empty$ -- 670
 format.name$ -- 82
-if$ -- 1597
+if$ -- 1637
 int.to.chr$ -- 0
-int.to.str$ -- 21
+int.to.str$ -- 22
 missing$ -- 14
-newline$ -- 102
+newline$ -- 106
 num.names$ -- 30
-pop$ -- 163
+pop$ -- 171
 preamble$ -- 1
-purify$ -- 83
+purify$ -- 85
 quote$ -- 0
-skip$ -- 280
+skip$ -- 288
 stack$ -- 0
-substring$ -- 390
-swap$ -- 117
+substring$ -- 395
+swap$ -- 118
 text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 84
-warning$ -- 6
+type$ -- 88
+warning$ -- 7
 while$ -- 50
-width$ -- 23
-write$ -- 209
+width$ -- 24
+write$ -- 216
 (There were 9 error messages)

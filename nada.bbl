@@ -8,6 +8,10 @@ D3.
 Dhtmlx.
 \newblock \url{http://dhtmlx.com}.
 
+\bibitem{API}
+Google maps javascript api.
+\newblock \url{https://developers.google.com/maps/documentation/javascript/}.
+
 \bibitem{jQuery}
 jquery.
 \newblock \url{http://jquery.com}.
