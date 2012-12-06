@@ -304,6 +304,13 @@ for all values with the exception that Actual Flight Time may
 exceed 1 or be below 1 due to the fact that it does not correspond exactly 
 to the Planned Flight Time.
 
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{figs/arch.eps}
+\caption{
+	Interaction of the implementation files and libraries for the NormSTAD Flight Analysis Tool}
+\label{arch}
+\end{figure}
 
 \section{Implementation}
 \label{sec-architecture}
@@ -344,22 +351,12 @@ the arrow in the upper right corner of the specific panel. In the following sub 
 will introduce each panel to give readers a better sense of the functionality of the 
 NormSTAD Flight Analysis Tool.
 
-\begin{figure}
-\centering
-\includegraphics[height=3.5in]{figs/calendar.eps}
-\caption{
-	Filters of NormSTAD Flight Analysis Tool's interface where date selection text box
-displays a calendar allowing users to select a date.
-}
-\label{calendar}
-\end{figure}
-
 
 \begin{figure*}
 \centering
 \includegraphics[width=\textwidth]{figs/overview.eps}
 \caption{
-NormSTAD Flight Analysis Tool's interface showing Normalized Actual Flight Time
+NormSTAD Flight Analysis Tools' interface showing Normalized Actual Flight Time
 for the range from 0.81 to 0.93 with 
 respect to Normalized Distance. One flight is selected (red line) with its 
 corresponding path shown on the map and details in Details on Demand.
@@ -410,6 +407,16 @@ to show in the Line Chart. Below the date selector, there is a search bar which
 allows specific flights to be shown.
 
 
+\begin{figure}
+\centering
+\includegraphics[height=3.5in]{figs/calendar.eps}
+\caption{
+	Filters of NormSTAD Flight Analysis Tools'' interface where date selection text box
+displays a calendar allowing users to select a date.
+}
+\label{calendar}
+\end{figure}
+
 Apart from filters to control the flights shown in the Line Chart, NormSTAD also allows changing
 of the attributes displayed and the color of the lines in the Line Chart. The ``Line Chart Type"
 value changes the axes and updates the normalized data displayed. By default, this value
@@ -439,7 +446,50 @@ line changes the line into its original color (airline color or flight color dep
 which mode is currently selected). 
 
 We note that it is easy to find abnormal patterns or outliers using the normalized Line Chart. We 
-present an example in
+present an example in Figure~\ref{outlier}. The Line Chart shows ``Distance vs. Actual
+Flight Time" of all SA678 flights. By using the bottom graph to select a range of the lines 
+in the Line Chart, the overlapped lines are separated and an outlier far above the other
+lines (selected in red) is quickly spotted. Based on the normalized values, we see that this 
+flight is closer to the destination compared to other flights at the same time, but does 
+not arrive much earlier. Experienced users may figure out the reason for this irregularity
+by inspecting the detailed information of this particular flight. 
+
+\subsection{Detail on Demand}
+\label{subsec-details}
+A mouse click on a line has the effect of updating the Details on Demand panel
+on the bottom right to display a summary of the selected flight information.
+The Details on Demand panel displays the flight number, the departure and arrival
+airports, the date, the arrival time and the duration of the flight in minutes for the flights 
+selected in the Line Chart as shown in Figure~\ref{overview}.
+ As a result of the feedback from an expert reviewer, when
+the user selects multiple lines, the records in the Details on Demand panel 
+dynamically increases. The same is true for when lines are deselected and the 
+Details on Demand removes the row corresponding to the line from its display.  
+
+\subsection{Map}
+\label{subsec-map}
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{figs/map.eps}
+\caption{
+	A Google Maps map showing the flight path of a flight from Seattle to New York.
+The map window is dynamically updated to show the flight path for a selected 
+flight.}
+\label{map}
+\end{figure}
+
+Below the Line Chart, there is a Google Maps map initially showing a map of the United States.
+If the ``Show Flight Path" checkbox is checked in the Filters panel, then a mouse click
+on a line repositions the map windows and displays the flight path in the Map panel on the map for the sampled
+latitude and longitude points along with labels displaying the departure and arrival 
+airport codes at their corresponding locations. A mouse click on
+another line will reposition the map window (if necessary) and show the new flight path along with
+labels for the departure and arrival airports. To enhance the visualization, a small green circle
+is animated moving along with the flight path starting at the departure airport and ending
+at the arrival airport. This quickly informs the user on the direction of the flight
+without having to reference the Details on Demand panel. If the "Show Flight Path" checkbox
+is unchecked, the flight path is not shown. With the map view, users are able to find the locations 
+of the flights where abnormal flight patterns occur in the Line Chart. 
 
 \section{Expert Reviews and Feedback}
 \label{sec-expert-review}
@@ -524,10 +574,17 @@ to the visualization without data manipulation via simple selection. Selection
 of lines in the line chart allow for the flight trajectory to be overlaid on a map
 and displaying of flight summary information.
 
-By using our tool, it is our belief
-that researchers and those in the aviation field will be able to design better flight plans and
-discover problem flights from by viewing holding or slow-down patterns in an intuitive
-interactive visualization. As a result of these potential findings by our users,
+We have shown through a brief tutorial how an outlier can be spotted in flight data
+using the NormSTAD Flight Analysis Tool.
+It is our belief
+that researchers and those in the aviation field by initially
+using our tool will be able to see where further analysis is required
+by spotting outlier or slow-down patterns
+in order to design better flight plans and
+discover problem flights.
+% by viewing holding or slow-down patterns in an intuitive
+%interactive visualization. 
+As a result of these potential findings by our users,
 savings in time and money could be seen as efficiency is increased and fuel consumption
 is decreased. While future features would benefit the NormSTAD Flight Analysis Tool
 as outlined in Section~\ref{sec-future-work}, it is already ready for deployment after
@@ -571,16 +628,17 @@ Helped with the design of the interface.
 Implementation of the line chart with horizontal range selection and the 
 updating of the map to display the flight path. NormSTAD tool tester for all
 panels. Wrote Related Work, Interface, Future Work,
-and Conclusion along with supplying both of the interface figure for this paper. 
-Editor and formatter for this paper. Narrator for the video demonstration.
+and Conclusion along with supplying the interface figures for this paper. 
+Editor and formatter for this paper. Narrated the video demonstration.
 
 \item[Fan Yang]
 Helped with the design of the interface and choosing of tools to use for implementation.
 Implementation of the filters and the details on demand panels. Extensive
 work done in the line chart selection functionality and work done in flight path
 display in the map.
-NormSTAD tool tester for all panels. Wrote the Architecture section for this paper
-and was the recorder for the video demonstration.
+NormSTAD tool tester for all panels. Wrote the Architecture section
+along with supplying the Calendar and Map figures for this paper
+Recorded the video demonstration.
 
 \end{description}
 

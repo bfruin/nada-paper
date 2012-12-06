@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2011.9.27)  5 DEC 2012 18:52
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=latex 2011.9.27)  6 DEC 2012 13:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -319,38 +319,42 @@ ller
  []
 
 [2]
-Overfull \hbox (2.67136pt too wide) in paragraph at lines 311--319
+File: figs/arch.eps Graphic file (type eps)
+ <figs/arch.eps>
+Overfull \hbox (2.67136pt too wide) in paragraph at lines 318--326
 \T1/aer/m/n/9 ple-men-ta-tion which is pri-mar-ily built us-ing the D3 JavaScri
 pt
  []
 
-File: figs/calendar.eps Graphic file (type eps)
-<figs/calendar.eps>
 File: figs/overview.eps Graphic file (type eps)
- <figs/overview.eps>
+<figs/overview.eps>
 File: figs/outlier.eps Graphic file (type eps)
  <figs/outlier.eps>
 File: figs/speed.eps Graphic file (type eps)
  <figs/speed.eps>
 File: figs/linechart3.eps Graphic file (type eps)
-
-<figs/linechart3.eps> [3] [4] [5]
-Overfull \hbox (1.81665pt too wide) in paragraph at lines 454--468
+ <figs/linechart3.eps>
+[3] [4] [5]
+File: figs/calendar.eps Graphic file (type eps)
+ <figs/calendar.eps>
+File: figs/map.eps Graphic file (type eps)
+ <figs/map.eps> [6]
+Overfull \hbox (1.81665pt too wide) in paragraph at lines 504--518
 []\T1/aer/m/n/9 We be-gan by giv-ing a brief in-tro-duc-tion and twenty-minute
  []
 
-[6]
-Overfull \hbox (8.81473pt too wide) in paragraph at lines 561--568
+[7]
+Overfull \hbox (8.81473pt too wide) in paragraph at lines 618--625
 []\T1/aer/m/n/9 Flight data finder, parser, an-a-lyzer and stored
  []
 
 
-Overfull \hbox (3.61574pt too wide) in paragraph at lines 570--576
+Overfull \hbox (3.61574pt too wide) in paragraph at lines 627--633
 \T1/aer/m/n/9 flight path. Norm-STAD tool tester for all pan-els. Wrote
  []
 
 
-Overfull \hbox (3.90434pt too wide) in paragraph at lines 578--584
+Overfull \hbox (3.90434pt too wide) in paragraph at lines 635--642
 []\T1/aer/m/n/9 Helped with the de-sign of the in-ter-face and choos-
  []
 
@@ -358,17 +362,15 @@ Overfull \hbox (3.90434pt too wide) in paragraph at lines 578--584
 LaTeX Font Info:    Try loading font information for T1+aett on input line 5.
  (/opt/local/stow/texlive/2011/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-)
-[7]) [8
-
-] (./nada.aux) ) 
+))
+[8] (./nada.aux) ) 
 Here is how much of TeX's memory you used:
- 3151 strings out of 493634
- 43321 string characters out of 3141310
- 115496 words of memory out of 3000000
- 6400 multiletter control sequences out of 15000+200000
+ 3159 strings out of 493634
+ 43400 string characters out of 3141310
+ 114496 words of memory out of 3000000
+ 6406 multiletter control sequences out of 15000+200000
  45070 words of font info for 61 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  44i,16n,45p,441b,360s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on nada.dvi (8 pages, 40392 bytes).
+Output written on nada.dvi (8 pages, 44480 bytes).
