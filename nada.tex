@@ -143,8 +143,8 @@ discusses related
 work. Section~\ref{sec-asdi} explains the ASDI data and its attributes. 
 Section~\ref{sec-architecture} describes
 the overall architecture and the interface is described in Section~\ref{sec-interface}.
-Section~\ref{sec-expert-review}
-provides the expert reviews
+Section~\ref{sec-evaluation}
+provides the experts' evaluation
 and feedbacks of the implementation. Section~\ref{sec-future-work}
 discusses future work, while our conclusions
 are outlined in Section~\ref{sec-conclusion}.
@@ -336,7 +336,10 @@ are implemented in JavaScript with events handled in D3 to link filters with the
 The NVD3~\cite{NVD3} JavaScript library is used for the line chart, horizontal axis 
 selection and the legend. The Google Maps JavaScript API~\cite{API} provides our flight path map,
 airport markers and flight path drawing. The Details on Demand panel is a dynamic
-HTML table which changes as a result of selection in the line chart.
+HTML table which changes as a result of selection in the line chart. 
+
+A simple model of the interaction between the panels and the libraries that they use
+is shown in Figure~\ref{arch}.
 
 
 
@@ -344,7 +347,7 @@ HTML table which changes as a result of selection in the line chart.
 \label{sec-interface}
 
 The NormSTAD Flight Analysis user interface initially shows four panels of display as seen in 
-Figure~\ref{speed} labeled Filters, Line Chart, Map and Details on Demand. Each panel allows for 
+Figure~\ref{overview} labeled Filters, Line Chart, Map and Details on Demand. Each panel allows for 
 direct interaction or display of the data and can be minimized to
 give more room to the other panels by selecting 
 the arrow in the upper right corner of the specific panel. In the following sub sections, we 
@@ -358,16 +361,18 @@ NormSTAD Flight Analysis Tool.
 \caption{
 NormSTAD Flight Analysis Tools' interface showing Normalized Actual Flight Time
 for the range from 0.81 to 0.93 with 
-respect to Normalized Distance. One flight is selected (red line) with its 
+respect to Normalized Actual Distance. One flight is selected (red line) with its 
 corresponding path shown on the map and details in Details on Demand.
 }
 \label{overview}
+\vspace{-10mm}
 \end{figure*}
-
 \begin{figure*}
 \centering
 \includegraphics[width=\textwidth]{figs/outlier.eps}
-\caption{}
+\caption{NormSTAD's Line Chart showing Normalized Actual Flight Time
+for the range from 0.55 to 0.68 with respect to Normalized Distance for 
+flight ASA678. An outlier is selected and displayed in red.}
 \label{outlier}
 \end{figure*}
 
@@ -386,10 +391,10 @@ corresponding path shown on the map and details in Details on Demand.
 \label{subsec-filters}
 
 On the left-side of the tool, there is a Filters panel which allows the user
-to limited the results taht they see on the Line Chart. The first section,
+to limit the results that they see on the Line Chart. The first section,
 ``Choose Airlines", is for selection of airlines to display in the 
 Line Chart which is set to all airlines by default after the data is loaded.
-Upon selection of an airline, the Line Chat is updated accordingly and 
+Upon selection of an airline, the Line Chart is updated accordingly and 
 the ``Choose Flights" section is populated with all flights
 for the selected airline(s). Note that a user can select
 multiple adjacent rows for both the Choose Airlines and the Choose Flights
@@ -411,7 +416,7 @@ allows specific flights to be shown.
 \centering
 \includegraphics[height=3.5in]{figs/calendar.eps}
 \caption{
-	Filters of NormSTAD Flight Analysis Tools'' interface where date selection text box
+	Filters of NormSTAD Flight Analysis Tools' interface where date selection text box
 displays a calendar allowing users to select a date.
 }
 \label{calendar}
@@ -422,8 +427,8 @@ of the attributes displayed and the color of the lines in the Line Chart. The ``
 value changes the axes and updates the normalized data displayed. By default, this value
 is set to ``Distance vs. Actual Flight Time", but it can be changed to ``Distance
 vs. Planned Flight Time", ``Altitude vs. Actual Flight Time", or ``Speed vs. Actual Flight Time". 
-The line can be colored by their airline or by their flight number using the ``Color by" drop-down
-menu. After changining the color, the legend above the Line Chart updates with the new 
+The line can be colored by its airline or by its flight number using the ``Color by" drop-down
+menu. After changing the color, the legend above the Line Chart updates with the new 
 color scheme. In Figure~\ref{speed}, we show ``Speed vs. Actual Flight Time" colored by
 airline and in
 Figure~\ref{linechart3} we show
@@ -454,7 +459,7 @@ flight is closer to the destination compared to other flights at the same time, 
 not arrive much earlier. Experienced users may figure out the reason for this irregularity
 by inspecting the detailed information of this particular flight. 
 
-\subsection{Detail on Demand}
+\subsection{Details on Demand}
 \label{subsec-details}
 A mouse click on a line has the effect of updating the Details on Demand panel
 on the bottom right to display a summary of the selected flight information.
@@ -486,29 +491,71 @@ airport codes at their corresponding locations. A mouse click on
 another line will reposition the map window (if necessary) and show the new flight path along with
 labels for the departure and arrival airports. To enhance the visualization, a small green circle
 is animated moving along with the flight path starting at the departure airport and ending
-at the arrival airport. This quickly informs the user on the direction of the flight
-without having to reference the Details on Demand panel. If the "Show Flight Path" checkbox
+at the arrival airport as seen in Figure~\ref{maps}.
+This quickly informs the user on the direction of the flight
+without having to reference the Details on Demand panel. If the ``Show Flight Path" checkbox
 is unchecked, the flight path is not shown. With the map view, users are able to find the locations 
 of the flights where abnormal flight patterns occur in the Line Chart. 
 
-\section{Expert Reviews and Feedback}
+\section{Evaluation}
 \label{sec-expert-review}
 
 In this section, we present the experts' reviews and feedback of the NormSTAD Flight 
-Analysis Tool. Due to the niche nature of our subject matter, Air Traffic Management, we decided
+Analysis Tools. Due to the niche nature of our subject matter, Air Traffic Management, we decided
 that an expert review aided by a questionnaire would be the best way to get detailed
 information pertaining to the NormSTAD tool. Three subject-matter experts were selected
-to be reviewers. Of these three subject-matter experts, one was from academia with 
-research interest in flight data analysis and two were from industry. 
+to be reviewers. Of these three subject-matter experts, one was from academia
+and two were from industry. The subject from academia is a member of the 
+Independent Experts Operational Goals Group of the 
+Committee on Eviation Environmental Protection part of the International
+Civil Aviation Organization that sets the standards and policies for world-wide
+civil aviation. The other two subjects are from the aviation industry with 
+an average of thirty years of experience in Air Traffic Control and Air Traffic
+Management. Both of the industry experts are now retired,
+but were affiliated with the Federal 
+Aviation Administration serving at various positions in the Air Traffic
+System Command Center.
 
-We began by giving a brief introduction and twenty-minute
+We began our evaluation by giving a brief introduction and twenty-minute
 tutorial of the NormSTAD Flight Analysis Tool which was followed by ten minutes where
-the expert was allowed to interact with the tool on their own. Following the training
+each expert was allowed to interact with the tool on their own. Following the training
 and interaction, the experts were each given three specific tasks to complete. 
 During this process, we encouraged the experts to ``think-aloud" and recorded their 
-thought process. The goal of this step was to determine if the NormSTAD tool met
-the experts' expectation and to use their responses in order to make the tool
-more intuitive and interactive. Upon completion of the tasks, the experts were
+thought process. 
+
+During the task completion session, the expert from academia
+commented that ``\emph{NormSTAD provided a very novel way of looking
+at flights. Due to normalized values, time series of the same flights
+or even flights with different flight numbers regardless of their 
+flight duration, departure and arrival airports, air speed and altitude.
+They could be overlaid for pattern recognition.}" The expert
+also commented that the tool could be more responsive when the user 
+toggled from one line chart to another.
+
+One of the experts from industry commented during 
+task completion that ``\emph{You should 
+demonstrate this to the FAA. They would benefit from using it!}"
+The same subject also commented that the dataset revealed some 
+interesting patterns point to one of the fluctuating vertical
+paths. He further analyzed and discovered details on this 
+flight.
+
+The other expert from industry commented that he enjoyed
+using the tool and that ``\emph{It was very easy to use"}. 
+
+\begin{figure}
+\centering
+\includegraphics[width=\columnwidth]{figs/review.eps}
+\caption{
+The results of the questionnaire shown in Appendix A
+for NormSTAD for each of our three experts.}
+\label{review}
+\end{figure}
+
+
+The goal of the training and task completion sessions was to determine if the NormSTAD tool met
+the experts' expectation with regards to its functionality,
+responsiveness, intuitiveness, and interactivity. Upon completion of the tasks, the experts were
 given a questionnaire modelled after Chin et al.~\cite{Chin88} and the 
 NASA ARC Project~\cite{NASA}
  in which they were asked to rate the tool from various perspectives
@@ -516,8 +563,22 @@ including its capabilities, terminology, graphical user interface, learning, and
 overall reaction. The experts were also alloted space to record their feedback
 and comments in open-ended text forms.
 
+
+Figure~\ref{review} gives summary information on the results of our questionnaire.
+Among the three expert reviewers, the retired Air Traffic Controller 1 provided
+lower scores than the other two experts mainly due to the fact that he thought 
+the tool could have been more flexible in terms of consuming other types of 
+data, being more responsive to user interaction, and presenting fewer
+details on demand. As a result of his and other comments, changes were made
+to the software many of which are outlined below. The other two experts
+provided comparable ratings, one giving a full score for the ``Screen" 
+section.
+The version used by our experts received an 87\% overall satisfaction
+rating. 
+
+
 Based on the feedback that we received in the questionnaires, the following changes
-were made NormSTAD tool as a direct result of the comments listed below:
+were made to the NormSTAD tool as a direct result of the comments listed below:
 \begin{description}
 	\item[Comment: ] The tool displayed an unnessary amount of detailed information
 in the Details on Demand panel
@@ -538,6 +599,9 @@ stayed same color
 	\item[Solution: ] Lines are now enlarged and changed to red on selection.
 \end{description}
 
+Although we did not perform any additional expert reviews following 
+NormSTAD updates, we are confident that with these improvements our 
+scores would increase.
 The NormSTAD Flight Analysis Tool still has room for improvement with the help
 of more expert reviewers. Appendix A includes a copy of the questionnaire that 
 was given to each of our expert reviewers. 
@@ -548,11 +612,6 @@ was given to each of our expert reviewers.
 
 Throughout the design, development and review process a few features were brought to 
 our attention that did not end up being in the current version of NormSTAD. 
-%A 
-%major feature would be showing weather information for a given flight. Our main issue
-%with adding weather to NormSTAD was that it would require accurate weather readings 
-%for all flights for all of the sampled points in our dataset. We were unable to find
-%weather data that would allow us to do this. 
 A limitation that we were not able to incorporate in our data was in displaying
 all sensory data that we have for a given flight without sampling. While this was
 our initial intention, we quickly realized that this reduced the usability
@@ -615,7 +674,7 @@ motivated us and kept us focused along the way.
 
 \begin{description}
 \item[Samet Ayhan]
-Flight data finder, parser, analyzer and stored it in a data structure. Found 
+Flight data finder, normalizer, parser, analyzer and stored it in a data structure. Found 
 and setup appointments for our expert reviewers. Helped with
 design of the interface. In charge of expert reviews
 and relaying feedback to others. Wrote Abstract, Introduction, Related Work, ASDI
